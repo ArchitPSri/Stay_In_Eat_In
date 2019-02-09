@@ -1,0 +1,29 @@
+.make_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background_image {
+  background-image: url('images/wallpaper.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+}
+
+.lucknow_image {
+  background-image: url('images/lko.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 400px;
+}
+
+.kanpur_image {
+  background-image: url('images/cnb.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 400px;
+}

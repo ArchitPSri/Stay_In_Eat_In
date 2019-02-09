@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="SIEI_DBConnection">
+      <HintPath>..\SIEI_DBConnection\bin\Debug\netstandard2.0\SIEI_DBConnection.dll</HintPath>
+    </Reference>
+    <Reference Include="SIEI_Entites">
+      <HintPath>..\SIEI_Entites\bin\Debug\netstandard2.0\SIEI_Entites.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

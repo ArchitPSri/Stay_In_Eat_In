@@ -1,0 +1,11 @@
+.make_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right {
+  position: absolute;
+  top: 17px;
+  right: 5px;
+}
