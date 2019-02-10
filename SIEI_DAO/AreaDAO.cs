@@ -16,6 +16,7 @@ namespace SIEI_AreaDAO
         public List<AreaList> GetAreaList(string areaOf)
         {
             List<AreaList> areaLists = new List<AreaList>();
+            
             try
             {
                 DBConnectionClass dBConnection = new DBConnectionClass
@@ -28,9 +29,13 @@ namespace SIEI_AreaDAO
                 if (dBConnection.IsConnect())
                 {
                     var cmd = new SqlCommand("SIEI_AREA_GetAreaList", dBConnection.Connection);
-                    cmd.Parameters.AddWithValue("@Col_Area", Col_Area);
-
                     SqlDataAdapter reader = new SqlDataAdapter(cmd);
+                    reader.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    reader.SelectCommand.Parameters.AddWithValue("@H_T", Col_Area);
+                    
+
+                    
+                    reader.SelectCommand = cmd;
                     if (reader != null)
                     {
                         DataTable dt = new DataTable();
