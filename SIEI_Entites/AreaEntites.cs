@@ -9,4 +9,11 @@ namespace SIEI_AreaEntites
         [DataMember]
         public string Area { get; set; }
     }
+
+    [DataContract]
+    public class Area
+    {
+        [DataMember]
+        public string areaOf { get; set; }
+    }
 }

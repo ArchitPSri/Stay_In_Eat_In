@@ -28,6 +28,9 @@
     <Reference Include="SIEI_DAO">
       <HintPath>..\SIEI_DAO\bin\Debug\netstandard2.0\SIEI_DAO.dll</HintPath>
     </Reference>
+    <Reference Include="SIEI_DBConnection">
+      <HintPath>..\SIEI_DBConnection\bin\Debug\netstandard2.0\SIEI_DBConnection.dll</HintPath>
+    </Reference>
     <Reference Include="SIEI_Entites">
       <HintPath>..\SIEI_Entites\bin\Debug\netstandard2.0\SIEI_Entites.dll</HintPath>
     </Reference>

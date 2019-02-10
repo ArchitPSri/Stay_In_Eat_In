@@ -11,16 +11,16 @@ namespace Stay_In_Eat_In.Controllers
 {
     [Produces("application/json")]
     [Route("api/[controller]")]
-    public class HostelController : Controller
+    public class TiffinController : Controller
     {
         [HttpGet("[action]")]
-        public void GetHostelList()
+        public void GetTiffinList()
         {
             
         }
 
         [HttpPost("[action]")]
-        public void SaveHostelDetails([FromBody] HostelDetails hostelDetails)
+        public void SaveTiffinDetails([FromBody] HostelDetails hostelDetails)
         {
             try
             {

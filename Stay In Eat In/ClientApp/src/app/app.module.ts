@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HostelComponent } from './hostel/hostel.component';
+import { TiffinComponent } from './tiffin/tiffin.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HostelComponent } from './hostel/hostel.component';
     FetchDataComponent,
     HeaderComponent,
     FooterComponent,
-    HostelComponent
+    HostelComponent,
+    TiffinComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -35,6 +37,7 @@ import { HostelComponent } from './hostel/hostel.component';
       { path: 'header', component: HeaderComponent },
       { path: 'footer', component: FooterComponent },
       { path: 'hostel', component: HostelComponent },
+      { path: 'tiffin', component: TiffinComponent },
     ])
   ],
   providers: [],

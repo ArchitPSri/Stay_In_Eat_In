@@ -6,14 +6,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./hostel.component.css'],
   templateUrl: './hostel.component.html',
 })
+
 export class HostelComponent {
 
   public Msg: any;
-  public hostelDetails: any;
-  public hostelArea: any;
+  public hostelDetails: HostelDetails[];
+  public hostelArea: Areas[];
   public _http: any;
   public _baseUrl: any;
-  public areaOf: string;
+  public hostelId: any;
+  public area: any;
   public headers = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -24,40 +26,27 @@ export class HostelComponent {
   public constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this._http = http;
     this._baseUrl = baseUrl;
-    this.areaOf = 'Hostel';
-    this.hostelDetails = {
-      "Name" : "",
-      "Area": "",
-      "Adress": "",
-      "City": "",
-      "State": "",
-      "Pin": "",
-      "Mobile1": "",
-      "Mobile2": "",
-      "RoomFor": "",
-      "Type": "",
-      "Furnished": "",
-      "StartingPrice": "",
-      "FoodAvail": ""
+    this.area = {
+      "areaOf": "Hostel"
     };
-    this.hostelArea = {
-      "Name" : "",
-    };
-    //this.GetAreaList();
+    this.GetAreaList();
+  }
+
+  @Injectable()
+  public GetAreaList() {
     this._http
-      .post(this._baseUrl + 'api/SIEI_AreaController/GetAreaList', this.areaOf, this.headers)
+      .post(this._baseUrl + 'api/Area/GetAreaList', this.area, this.headers)
       .subscribe(result => {
         this.hostelArea = result;
       });
-      this._http
-      .post(this._baseUrl + 'api/HostelController/SaveHostelDetails', this.hostelDetails, this.headers)
+  }
+
+  @Injectable()
+  public GetHostelDetails(){
+    this._http
+      .post(this._baseUrl + 'api/Hostel/GetHostelDetails', this.hostelId, this.headers)
       .subscribe(data => {
-        if (data == 1) {
-          this.Msg = "Data Successfully Saved";
-        }
-        else {
-          this.Msg = "Some Error Occurred";
-        }
+        this.hostelDetails = data;
       });
   }
 
@@ -65,7 +54,7 @@ export class HostelComponent {
   public SaveHostelDetails() {
     this.Msg = "";
     this._http
-      .post(this._baseUrl + 'api/HostelController/SaveHostelDetails', this.hostelDetails, this.headers)
+      .post(this._baseUrl + 'api/Hostel/SaveHostelDetails', this.hostelDetails, this.headers)
       .subscribe(data => {
         if (data == 1) {
           this.Msg = "Data Successfully Saved";
@@ -75,13 +64,25 @@ export class HostelComponent {
         }
       });
   }
+}
 
-  // @Injectable()
-  // public GetAreaList() {
-  //   this._http
-  //     .post(this._baseUrl + 'api/AreaController/GetAreaList', this.areaOf, this.headers)
-  //     .subscribe(result => {
-  //       this.hostelArea = result;
-  //     });
-  // }
+interface Areas {
+  Area: string;
+}
+
+interface HostelDetails {
+  Name : string;
+  Adress : string;
+  City : string;
+  State : string;
+  Pin : string;
+  Mobile1 : string;
+  Mobile2 : string;
+  RoomFor : string;
+  Type : string;
+  Furnished : string;
+  StartingPrice : string;
+  FoodAvail : string;
+  Area : string;
+  Photos : Blob;
 }
